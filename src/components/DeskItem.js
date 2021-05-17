@@ -4,7 +4,7 @@ import {Card, Div} from "@vkontakte/vkui";
 
 const DeskItem = ({children}) => {
     return (
-        <Card size='L'>
+        <Card size='l'>
             <Div>
                 {children}
             </Div>

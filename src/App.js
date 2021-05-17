@@ -17,11 +17,11 @@ const App = () => {
                     <Panel id={panel.desks} separator={false}>
                         <Desks onChangePanel={() => setActivePanel(panel.columns)}/>
                     </Panel>
-                    <Panel id={panel.columns}>
+                    {/*<Panel id={panel.columns}>
                         <div>
                             <Button onClick={() => setActivePanel(panel.desks)}>Switch to desks</Button>
                         </div>
-                    </Panel>
+                    </Panel>*/}
                 </View>
             </AppRoot>
         </AdaptivityProvider>

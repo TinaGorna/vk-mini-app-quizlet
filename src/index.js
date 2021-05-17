@@ -25,12 +25,7 @@ firebase.analytics();
 /*// Init VK  Mini App
 bridge.send("VKWebAppInit");*/
 
-/*const db = firebase.firestore();
-db.collection("desks").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(doc.id, doc.data());
-    });
-})*/
+
 
 ReactDOM.render(<App/>, document.getElementById("root"));
 if (process.env.NODE_ENV === "development") {
