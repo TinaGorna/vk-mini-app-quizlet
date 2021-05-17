@@ -13,13 +13,13 @@ const App = () => {
     return (
         <AdaptivityProvider>
             <AppRoot>
-                <View activePanel={activePanel}>
-                    <Panel id={panel.desks}>
+                <View activePanel={activePanel} header={false}>
+                    <Panel id={panel.desks} separator={false}>
                         <Desks onChangePanel={() => setActivePanel(panel.columns)}/>
                     </Panel>
                     <Panel id={panel.columns}>
                         <div>
-                            <Button onClick={() => setActivePanel(panel.desks)}>Перейти к доскам</Button>
+                            <Button onClick={() => setActivePanel(panel.desks)}>Switch to desks</Button>
                         </div>
                     </Panel>
                 </View>
