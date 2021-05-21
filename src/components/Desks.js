@@ -1,23 +1,30 @@
-import React, {Fragment} from 'react';
-import {CardGrid, PanelHeaderContent} from "@vkontakte/vkui";
+import React, {Fragment, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import DeskItem from "./DeskItem";
-import DeskList from "./DeskList";
+import {PanelHeader, Div} from "@vkontakte/vkui";
 
+import DeskList from "./DeskList";
+import DeskCreate from "./DeskCreate";
 
 const Desks = ({onChangePanel}) => {
+    const [desks, setDesks] = useState([]);
+    const addDesk = (desk) => setDesks([...desks, desk]);
+    const removeDesk = (removeId) => setDesks(desks.filter(({id}) => id !== removeId));
+
     return (
         <Fragment>
-            <PanelHeaderContent>My desks</PanelHeaderContent>
+            <PanelHeader>Мои доски</PanelHeader>
 
-            <DeskList/>
+            <Div>
+                <DeskCreate onCreate={addDesk}/>
+            </Div>
 
-            {/*<Button onClick={onChangePanel}>Switch to columns</Button>*/}
+            <DeskList desks={desks} onDelete={removeDesk} onLoadDesks={setDesks}/>
         </Fragment>
-    )
+    );
 };
+
 Desks.propTypes = {
-    onChangePanel: PropTypes.func.isRequired
+    onChangePanel: PropTypes.func.isRequired,
 };
 
 export default Desks;
